@@ -15,6 +15,7 @@ router.get('/', function(req, res) {
 });
 
 router.route('/book').get(bookCtrl.getBook);
+router.route('/book/:book').get(bookCtrl.getBookByName);
 
 
 

@@ -23,6 +23,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 
+
+app.set('port', process.env.PORT || 3000);
+
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
@@ -53,5 +56,6 @@ app.use(function(err, req, res, next) {
     });
 });
 
+app.listen(app.get('port'));
 
 module.exports = app;
